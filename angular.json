@@ -13,13 +13,17 @@
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
             "tsConfig": "projects/button/tsconfig.lib.json",
-            "project": "projects/button/ng-package.json"
+            "project": "projects/button/ng-package.json",
+            "styles": [
+              "projects/button/src/_theme.scss"
+            ]
           },
           "configurations": {
             "production": {
               "tsConfig": "projects/button/tsconfig.lib.prod.json"
             }
           }
+          
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
