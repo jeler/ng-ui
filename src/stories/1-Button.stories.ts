@@ -2,6 +2,9 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import { Button } from '@storybook/angular/demo';
+import { ButtonComponent } from '../../projects/button/src/public-api';
+
+import { storiesOf } from '@storybook/angular';
 
 export default {
   title: 'Button',
@@ -50,3 +53,29 @@ export const ButtonWithLinkToAnotherStory = () => ({
 ButtonWithLinkToAnotherStory.story = {
   name: 'button with link to another story',
 };
+
+export const ButtonFromLib = () => ({
+  component: ButtonComponent,
+  props: {
+    text: 'hello'
+  }
+})
+
+ButtonFromLib.story = {
+  name: 'hello'
+}
+
+storiesOf('button', module)
+  .add('basic', () => ({
+    component: ButtonComponent,
+    props: {
+      text: 'hello'
+    }
+  }))
+  .add('disabled', () => ({
+    component: ButtonComponent,
+    props: {
+      text: 'disabled',
+      disabled: true
+    }
+  }));
